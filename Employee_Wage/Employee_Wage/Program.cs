@@ -8,19 +8,25 @@ class Program
     public static void Main(string[] args)
     {
         Random random = new Random();
-        int empCheck = random.Next(0, 2);
+        int empCheck = random.Next(0, 3);
         int WorkingHr = 0;
         int WagePerHrs = 20;
         int Absent = 0;
+        int FullTime = 1;
         if (empCheck == Absent)
         {
             WorkingHr = 0;
             Console.WriteLine("Employee is Absent");
         }
-        else
+        else if (empCheck == FullTime)
         {
             WorkingHr = 8;
-            Console.WriteLine("Employee is Present");
+            Console.WriteLine("Employee is Full Time Present");
+        }
+        else
+        {
+            WorkingHr = 4;
+            Console.WriteLine("Employee is Part Time Present");
         }
 
         int EmpDailyWage = WagePerHrs * WorkingHr;
