@@ -11,22 +11,24 @@ class Program
         int empCheck = random.Next(0, 3);
         int WorkingHr = 0;
         int WagePerHrs = 20;
-        int Absent = 0;
-        int FullTime = 1;
-        if (empCheck == Absent)
+        const int Absent = 0;
+        const int FullTime = 1;
+        switch (empCheck)
         {
-            WorkingHr = 0;
-            Console.WriteLine("Employee is Absent");
-        }
-        else if (empCheck == FullTime)
-        {
-            WorkingHr = 8;
-            Console.WriteLine("Employee is Full Time Present");
-        }
-        else
-        {
-            WorkingHr = 4;
-            Console.WriteLine("Employee is Part Time Present");
+            case Absent:
+                WorkingHr = 0;
+                Console.WriteLine("Employee is Absent");
+                break;
+
+            case FullTime:
+                WorkingHr = 8;
+                Console.WriteLine("Employee is Full Time Present");
+                break;
+
+            default:
+                WorkingHr = 4;
+                Console.WriteLine("Employee is Part Time Present");
+                break;
         }
 
         int EmpDailyWage = WagePerHrs * WorkingHr;
