@@ -7,9 +7,11 @@ class Program
 {
     public static void Main(string[] args)
     {
-        int MaxDay = 20;
+        int MAXDAY = 20;
+        int TOTALWORKINGHRS = 100;
         int day = 0;
-        while (day < MaxDay)
+        int workingHrs = 0;
+        while (day < MAXDAY && workingHrs < TOTALWORKINGHRS)
         {
             Random random = new Random();
             int empCheck = random.Next(0, 3);
@@ -34,11 +36,12 @@ class Program
                     Console.WriteLine("Employee is Part Time Present");
                     break;
             }
-
+            workingHrs = workingHrs + WorkingHr;
             int EmpDailyWage = WagePerHrs * WorkingHr;
             Console.WriteLine($"Employee Daily Wage is {EmpDailyWage}");
             day++;
         }
+        Console.WriteLine($"Total Days:{day} & Total Working Hours:{workingHrs}");
         
     }
 }
