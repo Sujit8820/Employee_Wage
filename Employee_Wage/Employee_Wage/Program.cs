@@ -7,31 +7,38 @@ class Program
 {
     public static void Main(string[] args)
     {
-        Random random = new Random();
-        int empCheck = random.Next(0, 3);
-        int WorkingHr = 0;
-        int WagePerHrs = 20;
-        const int Absent = 0;
-        const int FullTime = 1;
-        switch (empCheck)
+        int MaxDay = 20;
+        int day = 0;
+        while (day < MaxDay)
         {
-            case Absent:
-                WorkingHr = 0;
-                Console.WriteLine("Employee is Absent");
-                break;
+            Random random = new Random();
+            int empCheck = random.Next(0, 3);
+            int WorkingHr = 0;
+            int WagePerHrs = 20;
+            const int Absent = 0;
+            const int FullTime = 1;
+            switch (empCheck)
+            {
+                case Absent:
+                    WorkingHr = 0;
+                    Console.WriteLine("Employee is Absent");
+                    break;
 
-            case FullTime:
-                WorkingHr = 8;
-                Console.WriteLine("Employee is Full Time Present");
-                break;
+                case FullTime:
+                    WorkingHr = 8;
+                    Console.WriteLine("Employee is Full Time Present");
+                    break;
 
-            default:
-                WorkingHr = 4;
-                Console.WriteLine("Employee is Part Time Present");
-                break;
+                default:
+                    WorkingHr = 4;
+                    Console.WriteLine("Employee is Part Time Present");
+                    break;
+            }
+
+            int EmpDailyWage = WagePerHrs * WorkingHr;
+            Console.WriteLine($"Employee Daily Wage is {EmpDailyWage}");
+            day++;
         }
-
-        int EmpDailyWage = WagePerHrs * WorkingHr;
-        Console.WriteLine($"Employee Daily Wage is {EmpDailyWage}");
+        
     }
 }
