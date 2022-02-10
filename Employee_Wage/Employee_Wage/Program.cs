@@ -18,22 +18,21 @@ class Program
             case ABSENT:
                 WorkingHr = 0;
                 // Console.WriteLine("Employee is Absent");return WorkingHr;
-                return WorkingHr;
                 break;
 
             case FULLTIME:
                 WorkingHr = 8;
                 // Console.WriteLine("Employee is Full Time Present");
-                return WorkingHr;
                 break;
 
             default:
                 WorkingHr = 4;
                 //Console.WriteLine("Employee is Part Time Present");
-                return WorkingHr;
                 break;
 
         }
+        return WorkingHr;
+
 
     }
     public static void Main(string[] args)
@@ -43,16 +42,20 @@ class Program
         int WAGEPERHRS = 20;
 
         int day = 0;
-        int totalworkingHrs = 0;
-        while (day < MAXDAY && totalworkingHrs < TOTALWORKINGHRS)
+        int totalWorkingHrs = 0;
+        int empTotalWage = 0;
+        int[] dialywage = new int[MAXDAY];
+        while (day < MAXDAY && totalWorkingHrs < TOTALWORKINGHRS)
         {
 
-            totalworkingHrs = totalworkingHrs + calculate_working_hrs();
+            totalWorkingHrs = totalWorkingHrs + calculate_working_hrs();
             int empDailyWage = WAGEPERHRS * calculate_working_hrs();
-            Console.WriteLine($"Employee Daily Wage is {empDailyWage}");
+            empTotalWage = empTotalWage + empDailyWage;
+            dialywage[day] = empDailyWage;
+            Console.WriteLine( $"DAY {day+1} Wage is {dialywage[day]}");
             day++;
         }
-        Console.WriteLine($"Total Days:{day} & Total Working Hours:{totalworkingHrs}");
+        Console.WriteLine($"Total Days:{day} , Total Working Hours:{totalWorkingHrs} & Total Employee Wage:{empTotalWage}");
 
     }
 
