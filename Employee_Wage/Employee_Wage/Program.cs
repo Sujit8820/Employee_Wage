@@ -6,40 +6,7 @@ namespace Employee_Wage;
 
 class Program
 {
-    static int calculate_working_hrs()
 
-    {
-        Random random = new Random();
-        int empCheck = random.Next(0, 3);
-        //Veriables
-        int WorkingHr = 0;
-
-        //Constants
-        const int ABSENT = 0;
-        const int FULLTIME = 1;
-
-        switch (empCheck)
-        {
-            case ABSENT:
-                WorkingHr = 0;
-                // Console.WriteLine("Employee is Absent");return WorkingHr;
-                break;
-
-            case FULLTIME:
-                WorkingHr = 8;
-                // Console.WriteLine("Employee is Full Time Present");
-                break;
-
-            default:
-                WorkingHr = 4;
-                //Console.WriteLine("Employee is Part Time Present");
-                break;
-
-        }
-        return WorkingHr;
-
-
-    }
     public static void Main(string[] args)
     {
         //Constants
@@ -56,9 +23,10 @@ class Program
 
         while (day < MAXDAY && totalWorkingHrs < TOTALWORKINGHRS)
         {
+            int workingHrs = EmployeeWage.GetWorkingHrs();
 
-            totalWorkingHrs = totalWorkingHrs + calculate_working_hrs();
-            int empDailyWage = WAGEPERHRS * calculate_working_hrs();
+            totalWorkingHrs = totalWorkingHrs + workingHrs;
+            int empDailyWage = WAGEPERHRS * workingHrs;
             empTotalWage = empTotalWage + empDailyWage;
             dailywage[day] = empDailyWage;
             Console.WriteLine($"DAY {day + 1} Wage is {dailywage[day]}");
